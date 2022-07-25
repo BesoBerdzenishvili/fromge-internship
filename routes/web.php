@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GetMain;
+use App\Http\Controllers\GetAbout;
+use App\Http\Controllers\GetBlog;
+use App\Http\Controllers\GetProfile;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,18 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('main');
-});
+Route::get('/', [GetMain::class, 'showMain']);
 
-Route::get('/blog', function () {
-    return view('blog');
-});
+Route::get('/about', [GetAbout::class, 'showAbout']);
 
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('/blog', [GetBlog::class, 'showBlog']);
 
-Route::get('/profile', function () {
-    return view('profile');
-});
+Route::get('/profile', [GetProfile::class, 'showProfile']);
